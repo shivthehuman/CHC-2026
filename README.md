@@ -1,26 +1,29 @@
-# Mintlify Landing Page Clone
+# 🌿 Mintlify Landing Page Clone
 
-This project is a recreation of the Mintlify landing page, built using HTML5 and CSS3. It was created as an assignment for the Web Dev Cohort 2026.
+This project is a complete recreation of the Mintlify landing page, built purely using **HTML5** and **CSS3**. It was developed as a hands-on assignment for the Web Dev Cohort 2026.
+
+## 🚀 Live Demo
+**[View the Live Website Here](https://shivthehuman.github.io/mintlify-clone/)**
 
 ## 📑 Sections Recreated
-I have successfully recreated the full flow of the landing page, including:
-1. **Navigation Bar:** Sticky top nav with logo and functional-looking links.
-2. **Hero Section:** Main value proposition with a background radial glow effect.
-3. **Documentation Preview:** A complex, nested mockup showing a sidebar and main documentation cards.
-4. **Trusted Logos Section:** Faded logo row for social proof.
-5. **Features Section:** Alternating rows of text and UI visual placeholders.
-6. **UI Preview (Chat):** An interactive-looking AI chat mockup window with custom styling.
-7. **Enterprise Section:** A clean 2x2 grid highlighting enterprise features.
-8. **Case Studies:** A 3-column grid featuring customer quotes and information.
-9. **Final Call-to-Action:** Bottom CTA with a centered radial glow.
-10. **Footer:** Complex multi-column footer with brand information and links.
+I successfully built the full flow of the landing page, focusing on modern CSS layouts like Flexbox and CSS Grid:
+* **Navigation Bar:** Sticky top nav with an SVG logo and clean hover states.
+* **Hero Section:** Main value proposition featuring a custom CSS radial glow effect.
+* **Documentation Preview:** A complex, nested UI mockup showing a sidebar and main documentation cards.
+* **Trusted Logos Section:** Faded company logo row demonstrating social proof.
+* **Features Section:** Alternating rows of text and UI visual placeholders using flexbox.
+* **UI Preview (Chat):** An interactive-looking AI chat window with custom styling for user and AI message bubbles.
+* **Enterprise Section:** A clean 2x2 CSS Grid highlighting enterprise features.
+* **Case Studies:** A 3-column CSS Grid featuring customer quotes and profile information.
+* **Final Call-to-Action:** Bottom CTA section highlighted with a centered radial glow.
+* **Footer:** Complex multi-column footer with brand information, structured links, and social icons.
 
 ## 🎨 Fonts Used
 * **Primary Font:** `Inter` (Imported via Google Fonts)
 * **Weights Used:** Regular (400), Medium (500), Semi-Bold (600), Bold (700), Extra-Bold (800)
 
 ## 🖌️ Color Palette
-The project uses CSS variables to maintain a consistent, dark-mode-first aesthetic:
+The project utilizes CSS variables (`:root`) to maintain a strict, consistent dark-mode aesthetic:
 * **Main Background:** `#0b0f19` (Deep dark blue/black)
 * **Surface Background:** `#131825` (Slightly lighter for cards and sidebars)
 * **Border Color:** `#262c3d`
@@ -30,3 +33,6 @@ The project uses CSS variables to maintain a consistent, dark-mode-first aesthet
 
 ## 📸 Screenshots
 *(See the repository files for screenshots of the final output)*
+
+---
+**Developed by Shivraj** | *Web Dev Cohort 2026*
