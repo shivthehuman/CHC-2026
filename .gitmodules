@@ -1,9 +1,0 @@
-[submodule "mintlify-clone"]
-	path = mintlify-clone
-	url = https://github.com/shivthehuman/mintlify-clone.git
-[submodule "html-resume-assignment"]
-	path = html-resume-assignment
-	url = https://github.com/shivthehuman/html-resume-assignment.git
-[submodule "cursor-landing-page"]
-	path = cursor-landing-page
-	url = https://github.com/shivthehuman/cursor-landing-page.git
