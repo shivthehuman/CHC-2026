@@ -1,0 +1,329 @@
+/* Base Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --border-color: #27272a;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --container-width: 1100px;
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    /* Desktop only restriction - blocking horizontal scroll if components overflow */
+    min-width: 1024px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1 {
+    font-size: 4rem;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* 1. Navigation */
+.navbar {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.nav-container {
+    width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* 2. Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 0 60px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    margin-top: 60px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    display: block;
+}
+
+/* 3. Trusted By */
+.trusted-by {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trusted-by p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.logo-row {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    opacity: 0.5;
+}
+
+/* 4. Features Split */
+.features-split {
+    padding: 100px 0;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    gap: 60px;
+}
+
+.feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-image {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    background: #111;
+}
+
+.feature-image img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+/* 5 & 6 & 7. Grids (Feature Cards, Testimonials, Use Cases) */
+.feature-cards,
+.testimonials,
+.use-cases {
+    padding: 80px 0;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonials .grid-cards,
+.use-cases .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card,
+.testimonial-card,
+.use-case-card {
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #0a0a0a;
+}
+
+.testimonial-card p {
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.author span {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.use-case-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* 8. Changelog */
+.changelog {
+    padding: 80px 0;
+}
+
+.changelog-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.changelog-item {
+    display: flex;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.changelog-item .date {
+    width: 120px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.changelog-item .details {
+    flex: 1;
+}
+
+/* 9. Team */
+.team-about {
+    padding: 100px 0;
+}
+
+.team-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background: #0a0a0a;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
+}
+
+.team-content img {
+    border-radius: 8px;
+}
+
+/* 10. Final CTA */
+.final-cta {
+    padding: 120px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 11. Footer */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 80px 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-brand p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-links h4 {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
