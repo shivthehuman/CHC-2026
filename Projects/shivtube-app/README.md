@@ -3,7 +3,7 @@
 A highly accurate, pixel-perfect clone of the YouTube desktop browsing interface built for the Web Dev Cohort 2026. Data is dynamically fetched using the FreeAPI YouTube endpoints.
 
 ### 🔗 Live Preview
-**[View Live Application Here](YAHAN_VERCEL_LINK_DAAL_DENA)**
+**[View Live Application Here]https://youtubebyshivthehuman.vercel.app/**
 
 ## ✨ Key Features
 - **Pixel-Perfect Architecture:** Exact replica of YouTube's `#0f0f0f` dark mode, including top navigation, collapsible sidebar, and category chips.
