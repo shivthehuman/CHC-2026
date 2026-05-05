@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShivTube | YouTube Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Roboto', 'Arial', 'sans-serif'] },
+                    colors: {
+                        yt: {
+                            bg: '#0f0f0f',
+                            hover: '#272727',
+                            border: '#3f3f3f',
+                            text: '#f1f1f1',
+                            subtext: '#aaaaaa',
+                            red: '#ff0000'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-yt-bg text-yt-text h-screen flex flex-col overflow-hidden">
+
+    <nav class="h-14 px-4 flex items-center justify-between sticky top-0 bg-yt-bg z-50">
+        <div class="flex items-center gap-4">
+            <button class="p-2 hover:bg-yt-hover rounded-full transition-colors hidden sm:block">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <div class="flex items-center gap-1 cursor-pointer">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Logo" class="h-7 w-7">
+                <span class="text-xl font-bold tracking-tighter">ShivTube</span>
+            </div>
+        </div>
+
+        <div class="hidden sm:flex items-center flex-grow max-w-2xl ml-8 mr-4">
+            <div
+                class="flex items-center w-full bg-transparent border border-yt-border rounded-l-full overflow-hidden focus-within:border-blue-500 ml-10">
+                <div class="pl-4 pr-2 text-yt-subtext hidden sm:block"><i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input type="text" placeholder="Search"
+                    class="w-full bg-transparent py-2 px-2 outline-none text-yt-text placeholder-yt-subtext">
+            </div>
+            <button
+                class="bg-yt-hover border border-l-0 border-yt-border px-5 py-2.5 rounded-r-full hover:bg-[#3f3f3f] transition-colors">
+                <i class="fa-solid fa-magnifying-glass text-yt-text"></i>
+            </button>
+            <button class="ml-4 p-2.5 bg-yt-hover rounded-full hover:bg-[#3f3f3f] transition-colors">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-4">
+            <button class="p-2 hover:bg-yt-hover rounded-full sm:hidden"><i
+                    class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="p-2 hover:bg-yt-hover rounded-full hidden sm:block"><i
+                    class="fa-solid fa-video"></i></button>
+            <button class="p-2 hover:bg-yt-hover rounded-full hidden sm:block"><i
+                    class="fa-regular fa-bell"></i></button>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile"
+                class="h-8 w-8 rounded-full cursor-pointer ml-2 border border-yt-border">
+        </div>
+    </nav>
+
+    <div class="flex flex-1 overflow-hidden">
+        <aside
+            class="w-64 bg-yt-bg hover:overflow-y-auto overflow-hidden hidden xl:flex flex-col py-3 px-3 custom-scroll">
+            <div class="nav-item active"><i class="fa-solid fa-house w-6 text-center"></i><span
+                    class="ml-4 font-medium">Home</span></div>
+            <div class="nav-item"><i class="fa-solid fa-bolt w-6 text-center"></i><span
+                    class="ml-4 font-medium">Shorts</span></div>
+            <div class="nav-item"><i class="fa-brands fa-youtube w-6 text-center"></i><span
+                    class="ml-4 font-medium">Subscriptions</span></div>
+            <hr class="border-yt-border my-3 mx-2">
+            <div class="nav-item"><i class="fa-solid fa-clock-rotate-left w-6 text-center"></i><span
+                    class="ml-4 font-medium">History</span></div>
+            <div class="nav-item"><i class="fa-regular fa-clock w-6 text-center"></i><span
+                    class="ml-4 font-medium">Watch Later</span></div>
+            <hr class="border-yt-border my-3 mx-2">
+            <p class="px-4 text-sm text-yt-subtext font-medium mt-2">Explore</p>
+            <div class="nav-item"><i class="fa-solid fa-fire w-6 text-center"></i><span
+                    class="ml-4 font-medium">Trending</span></div>
+            <div class="nav-item"><i class="fa-solid fa-music w-6 text-center"></i><span
+                    class="ml-4 font-medium">Music</span></div>
+            <div class="nav-item"><i class="fa-solid fa-gamepad w-6 text-center"></i><span
+                    class="ml-4 font-medium">Gaming</span></div>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto custom-scroll bg-yt-bg pb-10">
+            <div
+                class="sticky top-0 bg-yt-bg/95 backdrop-blur z-40 px-4 py-3 flex gap-3 overflow-x-auto no-scroll border-y border-yt-border/50">
+                <span class="chip active-chip">All</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">Web Development</span>
+                <span class="chip">Live</span>
+                <span class="chip">Music</span>
+                <span class="chip">Mixes</span>
+                <span class="chip">Podcasts</span>
+                <span class="chip">Recently uploaded</span>
+            </div>
+
+            <div class="p-4 sm:p-6">
+                <div id="loaderArea"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8"></div>
+                <div id="videoGrid"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 hidden"></div>
+            </div>
+
+            <footer class="text-center py-6 text-yt-subtext text-sm">
+                Developed by <a href="https://github.com/shivthehuman" target="_blank"
+                    class="text-blue-400 hover:underline">@shivthehuman</a>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
