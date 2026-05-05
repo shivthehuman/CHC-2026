@@ -66,10 +66,11 @@ body {
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /* The standard CSS property for future compatibility */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
 .vid-card img {
     transition: transform 0.3s;
 }
