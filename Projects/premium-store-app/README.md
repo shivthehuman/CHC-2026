@@ -3,7 +3,7 @@
 A high-performance product listing interface built for the Web Dev Cohort 2026. This application seamlessly integrates with the FreeAPI Random Products endpoint to deliver a modern, Amazon-style e-commerce browsing experience.
 
 ### 🔗 Live Preview
-**[View Live Store Here](YAHAN_VERCEL_LINK_DAAL_DENA)**
+**[View Live Store Here] https://storebyshivthehuman.vercel.app/**
 
 ## ✨ Key Features
 - **Modern E-Commerce Layout:** Fully responsive grid architecture optimized for desktop, tablet, and mobile.
