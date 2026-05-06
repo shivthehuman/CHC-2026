@@ -1,18 +1,13 @@
 # 🔒 @shivthehuman - Advanced Auth SPA
 
-A Single Page Application (SPA) implementing a robust, state-driven authentication flow using Vanilla JavaScript and the FreeAPI Auth Module.
+A fully modular, enterprise-grade Single Page Application (SPA) handling secure authentication using Vanilla JavaScript.
 
 ### 🔗 Live Preview
 **[View Live Application Here](YAHAN_VERCEL_LINK_DAAL_DENA)**
 
-## ✨ Enterprise Features
-- **Separation of Concerns (SoC):** Distinct Network Layer (`api.js`) and UI Controller (`app.js`) mimicking modern framework architectures.
-- **JWT Session Management:** Secure handling of Bearer tokens via `localStorage` with automated attachment in request headers.
-- **Dynamic UI State:** Seamless view switching between Login, Register, and Dashboard without page reloads.
-- **Custom Toast System:** Built-in procedural notification system for success/error API feedback.
-- **UX Polish:** Integrated loading spinners within buttons and disabled states during asynchronous network calls to prevent duplicate submissions.
-
-## 🛠️ Tech Stack
-- **Architecture:** SPA / Vanilla JavaScript (ES6 Modules/Async)
-- **Styling:** Tailwind CSS + Glassmorphism UI
-- **API Source:** [FreeAPI User Authentication](https://api.freeapi.app/api/v1/users/login)
+## ✨ Enterprise Features Implemented
+- **Modular Architecture:** Codebase strictly divided into Separation of Concerns (`api.js` for network, `ui.js` for DOM, `main.js` for logic/state).
+- **Protected Routing:** Auto-login functionality via token verification on page load.
+- **Strict Frontend Validation:** Pre-flight checks for email formatting and password strength to prevent unnecessary API calls.
+- **Custom Toast System:** Non-blocking, aesthetic success/error notifications.
+- **UX Polish:** Integrated password visibility toggles and state-driven disabled buttons during asynchronous operations.
