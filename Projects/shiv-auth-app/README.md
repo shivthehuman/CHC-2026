@@ -3,7 +3,7 @@
 A fully modular, enterprise-grade Single Page Application (SPA) handling secure authentication using Vanilla JavaScript.
 
 ### 🔗 Live Preview
-**[View Live Application Here](YAHAN_VERCEL_LINK_DAAL_DENA)**
+**[View Live Application Here] https://authbyshivthehuman.vercel.app/**
 
 ## ✨ Enterprise Features Implemented
 - **Modular Architecture:** Codebase strictly divided into Separation of Concerns (`api.js` for network, `ui.js` for DOM, `main.js` for logic/state).
