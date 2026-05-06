@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@shivthehuman | Expert Auth System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: '#3b82f6', darkbg: '#0a0a0a' }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-darkbg text-white min-h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Ambient Background -->
+    <div
+        class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-brand/10 blur-[120px] rounded-full pointer-events-none">
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3"></div>
+
+    <main class="w-full max-w-md p-6 relative z-10">
+
+        <!-- LOGIN VIEW -->
+        <div id="login-view"
+            class="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl transition-all duration-500">
+            <div class="text-center mb-8">
+                <i class="fa-solid fa-fingerprint text-4xl text-brand mb-4"></i>
+                <h1 class="text-2xl font-bold">Welcome Back</h1>
+            </div>
+            <form id="login-form" class="flex flex-col gap-5">
+                <div>
+                    <label class="text-xs text-slate-400 uppercase">Username</label>
+                    <input type="text" id="l-username"
+                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 mt-1 outline-none focus:border-brand">
+                </div>
+                <div class="relative">
+                    <label class="text-xs text-slate-400 uppercase">Password</label>
+                    <input type="password" id="l-password"
+                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 pr-12 mt-1 outline-none focus:border-brand">
+                    <i
+                        class="fa-solid fa-eye absolute right-4 top-[65%] -translate-y-1/2 text-slate-400 cursor-pointer hover:text-white toggle-password"></i>
+                </div>
+                <button type="submit" id="btn-login"
+                    class="w-full bg-white text-black font-semibold rounded-xl py-3 hover:bg-slate-200 transition-all flex justify-center items-center gap-2 mt-2">
+                    <span>Sign In</span>
+                </button>
+            </form>
+            <p class="text-center text-sm text-slate-400 mt-6">New here? <button id="nav-register"
+                    class="text-brand font-medium">Create account</button></p>
+        </div>
+
+        <!-- REGISTER VIEW -->
+        <div id="register-view"
+            class="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl transition-all duration-500 hidden">
+            <div class="text-center mb-8">
+                <i class="fa-solid fa-user-plus text-4xl text-brand mb-4"></i>
+                <h1 class="text-2xl font-bold">Create Account</h1>
+            </div>
+            <form id="register-form" class="flex flex-col gap-4">
+                <div>
+                    <label class="text-xs text-slate-400 uppercase">Username</label>
+                    <input type="text" id="r-username"
+                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 mt-1 outline-none focus:border-brand">
+                </div>
+                <div>
+                    <label class="text-xs text-slate-400 uppercase">Email</label>
+                    <input type="email" id="r-email"
+                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 mt-1 outline-none focus:border-brand">
+                </div>
+                <div class="relative">
+                    <label class="text-xs text-slate-400 uppercase">Password</label>
+                    <input type="password" id="r-password"
+                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 pr-12 mt-1 outline-none focus:border-brand">
+                    <i
+                        class="fa-solid fa-eye absolute right-4 top-[65%] -translate-y-1/2 text-slate-400 cursor-pointer hover:text-white toggle-password"></i>
+                </div>
+                <button type="submit" id="btn-register"
+                    class="w-full bg-brand text-white font-semibold rounded-xl py-3 hover:bg-blue-600 transition-all flex justify-center items-center gap-2 mt-4">
+                    <span>Sign Up</span>
+                </button>
+            </form>
+            <p class="text-center text-sm text-slate-400 mt-6">Already have an account? <button id="nav-login"
+                    class="text-brand font-medium">Sign In</button></p>
+        </div>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="dashboard-view"
+            class="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl transition-all duration-500 hidden w-full sm:w-[500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="flex justify-between items-start border-b border-white/10 pb-6 mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold">Dashboard</h2>
+                </div>
+                <button id="btn-logout"
+                    class="bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-power-off"></i> Logout
+                </button>
+            </div>
+            <div id="user-profile"></div>
+        </div>
+
+    </main>
+
+    <!-- THE 3 MODULAR FILES -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
