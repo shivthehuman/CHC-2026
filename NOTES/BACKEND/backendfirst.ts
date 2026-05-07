@@ -41,7 +41,8 @@
 
 
 
-//Starting sirs lecture:
+//Starting piyush sirs lecture: introtobackend: 
+
 // ============================================================================
 // PART 1: BASIC TYPESCRIPT FUNCTIONS
 // ============================================================================
@@ -106,6 +107,8 @@ interface User {
 }
 
 
+
+// Learning by Building Ok:
 // ============================================================================
 // PART 3: IN-MEMORY DATABASE USING CLASS AND MAP
 // ============================================================================
@@ -161,8 +164,6 @@ class InMemoryDB {
         return this._db.get(id)!;
     }
 }
-
-
 // ============================================================================
 // PART 4: EXECUTING THE CODE
 // ============================================================================
@@ -196,6 +197,8 @@ myDB.updateUser('1', {
     }
 });
 
+
+//If Not understand In-Memory DB that is Ok ---> 
 /**[REVISION NOTES: OOP & IN-MEMORY DB IN TYPESCRIPT]
 
 1. INTERFACES & TYPES:
