@@ -1,5 +1,11 @@
+
+
 // page 75 detailes we have what we learn in this lecture - Intro to Backend
-//go to notes in tab on Backedn  
+//go to notes in tablet name is -- BACKEND NOTES 
+
+
+
+
 
 // lecture start
 
@@ -8,6 +14,7 @@
 //!  HTTP METHODS
 // we are going to learn,   when we req. by http methods , how req. goes
 //we learn http methods get post put patcha delete and status code
+//this notes in tablet check notes;
 //
 
 //!  NPM 
@@ -25,7 +32,7 @@
 
 // ------------------------------------------------------
 //Piyush sir- starting typescript; he say we learn on the go , and by building ;
-//so dont worry to get exerties in day or month 
+//so dont worry to get exerties in day or month in typescript
 //! TypeScript;
 
 //? why we need typeScript
@@ -76,7 +83,7 @@ if we remove checker from here the code is run, because js add strings,  concati
 ///2. The TypeScript Way (Clean and strict)
 In TypeScript, you simply add a colon : 
 
-///?followed by the data type right next to the parameters.
+///? followed by the data type right next to the parameters.
 
 TypeScript
 function add(a: number, b: number): number {
@@ -100,66 +107,166 @@ TypeScript code ultimately gets translated (compiled) into regular JavaScript so
 but it strips out all the type-checking stuff once it confirms your code is safe.
  */
 
+/*
+================================================================================
+ TypeScript vs JavaScript (The Compilation Process)
+================================================================================
+Explanation:
+Browsers and Node.js (historically) do not natively understand TypeScript (TS). 
+TypeScript is a superset of JavaScript that adds static typing. 
 
-// browser dont know TS:
-//source code =TS
-//compile TS to JS and run JS file;
+To run TypeScript:
+1. You write the Source Code in TS.
+2. You use the TypeScript Compiler (`tsc`) to "transpile" or compile it into plain JavaScript (JS).
+3. The resulting JS file is what actually runs in the Browser or Node.js environment.
 
-//now we going to create a typeScript file ---> backendfirst.ts
-//inside this file what piyush sir teach we have 
+Think of TS as a development tool that catches errors before you even run the code.
+================================================================================
+*/
 
-//-------------------------------------------------------------------------------------------------
-//And now Node.js by hitesh sir
-
-//node have modules;
-
-
-
-const fs = require("fs");
-// const fs = require("node:fs");//another way to write 
-const path = require("path");
-const os = require("os");
-
-console.log("NodeJs:", process.versions.node);
-console.log("NodeJs:", process.versions.node);
-console.log("libuv:", process.versions.uv);
-
-// console.log("=========================");
-console.log("libuv:", process.platform);
-console.log("Plateform:", process.platform);// win32
-console.log("CPU:", os.cpus); // [Function: cpus]
-console.log("CPU:", os.cpus().length); // 16
-// console.log(process.versions);
-
-console.log("V8 Engine:", process.versions.v8);
-console.log("Is 'path' available?", typeof require('path') !== 'undefined');
-
-// To see all versioned dependencies:
-// console.table(process.versions);
-
-//which language is fast interpreted / compiled ?
+// MUST KNOW: You would compile this file in your terminal using:
+// npx tsc backendfirst.ts 
+// This generates a backendfirst.js file which you then run with `node backendfirst.js`.
 
 
-//Node.js
-//majorlly components of node.js
-//1 v8 engine ( Google)
-// Js-> machine Code  (JIT compilation);
-// manage heap and call stack
-//knows nothing anout files, network or timeers
+/*
+================================================================================
+ Node.js Built-in Modules (The "Batteries Included" tools)
+================================================================================
+Explanation:
+Node.js comes with built-in modules that allow you to interact with the operating
+system, file system, network, and more. Because JavaScript was originally built
+for browsers (which are heavily sandboxed for security), it couldn't read your 
+local files. Node.js adds these capabilities via modules.
+================================================================================
+*/
 
-//2 LIBUV ( a c library);
-//event loops, thread pool
-//OS level async I/O
-//Dns lookups
-//js is single thread but backgroud thread run by libuv
+// TRICKY/BEST PRACTICE: The "node:" prefix explicitly tells Node to bypass the 
+// `node_modules` folder search and instantly load the built-in core module. 
+// It is faster and safer against malicious packages with similar names.
+const fs = require("node:fs");
+const path = require("node:path");
+const os = require("node:os");
 
-//3 Node js binding (c++)
-//bridge
+console.log("--- System Information ---");
+
+// MUST KNOW: process is a global object in Node.js providing info about the current Node process.
+console.log("Node.js Version:", process.versions.node);
+console.log("Libuv Version:", process.versions.uv);
+
+// process.platform tells you the OS you are running on (e.g., 'win32' for Windows, 'darwin' for Mac, 'linux').
+console.log("Platform:", process.platform);
+
+// os.cpus() returns an array of objects containing info about each logical CPU core.
+// TRICKY: Why do we care about the length? Node.js is single-threaded. 
+// If we want to scale an app, we use the 'cluster' module to create exactly 
+// this many "worker" processes to utilize 100% of the CPU!
+console.log("Total Logical CPU Cores:", os.cpus().length);
+
+// Checks if a core module was successfully required
+console.log("Is 'path' available?", typeof path !== 'undefined');
 
 
-//Know about Global and globalthis:? assignment: 
-console.log(typeof global);
-console.log(typeof globalThis);
+/*
+================================================================================
+ Node.js INTERNALS & ARCHITECTURE (The Heart of Node)
+================================================================================
+Explanation:
+Node.js is fundamentally a C++ program that wraps Google's V8 engine and Libuv.
 
+ARCHITECTURE DIAGRAM:
+
+       +---------------------------------------------------+
+       |                  YOUR JAVASCRIPT CODE             |
+       +-------------------------+-------------------------+
+                                 |
+                                 V
+       +-------------------------+-------------------------+
+       | NODE.js STANDARD LIBRARY (fs, http, crypto, etc.) | <-- Node.js Core
+       +-------------------------+-------------------------+
+                                 |
+                                 V
+       +-------------------------+-------------------------+
+       |        NODE.js BINDINGS (C++ Bridge / Wrapper)    | <-- Allows JS to talk to C++
+       +-------+-----------------------------------+-------+
+               |                                   |
+               V                                   V
+       +-------+-------+                   +-------+-------+
+       |   V8 ENGINE   |                   |    LIBUV      |
+       |  (Executes JS)|                   | (Async I/O)   |
+       +---------------+                   +---------------+
+
+1. V8 Engine (Built by Google in C++):
+   - Responsible for taking your JavaScript and converting it into Machine Code.
+   - Uses JIT (Just-In-Time) compilation, making JS incredibly fast.
+   - Manages the Memory Heap (variable allocation) and the Call Stack (function execution).
+   - *Limitation:* V8 is purely a JS engine. It knows NOTHING about file systems, networks, or HTTP.
+
+2. LIBUV (A pure C library):
+   - This gives Node.js its superpower: Asynchronous, Non-blocking I/O.
+   - It provides the "Event Loop" (handles light async tasks).
+   - It provides the "Thread Pool" (4 background worker threads by default to handle heavy tasks like File I/O, Cryptography, DNS lookups).
+   - *Concept:* JS is single-threaded, but Node.js uses Libuv to offload heavy work to background OS threads!
+
+3. Node.js Bindings (C++):
+   - JS cannot directly speak to C libraries. The bindings act as a bridge translating 
+     V8's JavaScript objects into C/C++ structures that Libuv and the OS can understand.
+================================================================================
+*/
+
+console.log("\n--- Node.js Internals Info ---");
+console.log("V8 Engine Version powering this environment:", process.versions.v8);
+
+// To see all underlying C/C++ dependencies Node is using:
+// console.table(process.versions); // TRICKY: console.table formats objects nicely into a grid.
+
+
+/*
+================================================================================
+TOPIC 4: Interpreted vs Compiled vs JIT (Just-In-Time)
+================================================================================
+Explanation:
+- Interpreted (e.g., old Python/Ruby): Code is read line-by-line and executed. Slow, but starts instantly.
+- Compiled (e.g., C++, Rust): Code is translated entirely into machine code before running. High startup time, incredibly fast execution.
+
+Where does JS fit?
+Modern JavaScript (via V8) uses JIT (Just-In-Time) Compilation. 
+It starts interpreting the code quickly, but running in the background is a compiler 
+(like V8's TurboFan) that takes frequently run code ("hot code") and compiles it into 
+optimized machine code on the fly. It is the best of both worlds!
+================================================================================
+*/
+
+
+/*
+================================================================================
+ `global` vs `globalThis`
+================================================================================
+Explanation:
+In JavaScript, the global object differs depending on where your code runs:
+- In the Browser, the global object is `window`.
+- In Node.js, the global object is `global`.
+
+This caused a huge headache for developers writing code that needs to run in BOTH 
+environments. To solve this, ECMAScript standardized `globalThis`.
+
+`globalThis` automatically points to the correct global object regardless of the 
+environment (it will point to `window` in a browser, and `global` in Node).
+================================================================================
+*/
+
+console.log("\n--- Globals ---");
+
+// TRICKY: `global` works here because we are in Node.js. 
+// If you paste this specific line in a browser console, it will crash.
+console.log("Type of global object in Node:", typeof global);
+
+// MUST KNOW: Always prefer `globalThis` in modern JS/TS for cross-platform compatibility.
+console.log("Type of globalThis (Cross-platform):", typeof globalThis);
+
+// PROOF: In Node.js, globalThis is literally a reference to the global object.
+console.log("Are global and globalThis the same in Node.js?", global === globalThis); // true
+
+//LECTURE COMPLETED HERE
 
 
