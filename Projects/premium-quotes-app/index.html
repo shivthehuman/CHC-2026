@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@shivtheHuman | Quotes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { brand: { 500: '#8b5cf6', 600: '#7c3aed' } }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 min-h-screen transition-colors duration-300">
+
+    <nav
+        class="sticky top-0 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-quote-left text-brand-500 text-2xl"></i>
+                <h1 class="text-2xl font-bold tracking-tight">@shiv<span class="text-brand-500">thehuman</span></h1>
+            </div>
+            <button id="themeToggleBtn"
+                class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                <i id="themeIcon" class="fa-solid fa-sun text-yellow-400 text-lg"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <section class="mb-12">
+            <div
+                class="relative bg-gradient-to-br from-brand-600 to-indigo-800 rounded-3xl p-8 sm:p-12 text-center shadow-2xl overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+                </div>
+                <div class="relative z-10">
+                    <h2 class="text-sm font-bold text-brand-200 uppercase tracking-widest mb-6">Quote of the Day</h2>
+
+                    <div id="loaderHero" class="animate-pulse flex flex-col items-center gap-4">
+                        <div class="h-6 bg-white/20 rounded w-3/4"></div>
+                        <div class="h-6 bg-white/20 rounded w-2/4"></div>
+                    </div>
+
+                    <div id="contentHero" class="hidden fade-in">
+                        <p id="mainQuote" class="text-2xl sm:text-4xl font-medium text-white mb-6 leading-relaxed">""
+                        </p>
+                        <p id="mainAuthor" class="text-lg text-brand-200 font-semibold"></p>
+                    </div>
+
+                    <button id="newQuoteBtn"
+                        class="mt-8 bg-white text-brand-600 hover:bg-slate-100 px-6 py-3 rounded-full font-bold shadow-lg transition-transform active:scale-95 flex items-center gap-2 mx-auto">
+                        <i class="fa-solid fa-rotate"></i> Next Quote
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold border-l-4 border-brand-500 pl-3">All Quotes</h2>
+        </div>
+
+        <section>
+            <div id="loaderGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div id="quotesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
+        </section>
+
+    </main>
+    <!-- Footer Section -->
+    <footer
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full border-t border-slate-200 dark:border-slate-700 text-center mt-auto">
+        <p class="text-slate-600 dark:text-slate-400 mb-4 font-medium">Developed with ❤️ by @shivthehuman</p>
+        <div class="flex justify-center gap-6">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/shivraj-rajput-136a732aa/" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-brand-500 hover:-translate-y-1 transition-all duration-300 text-2xl">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/shivthehuman" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-brand-500 hover:-translate-y-1 transition-all duration-300 text-2xl">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/shivthehuman_" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-brand-500 hover:-translate-y-1 transition-all duration-300 text-2xl">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/shivthehuman_/" target="_blank" rel="noopener noreferrer"
+                class="text-slate-400 hover:text-brand-500 hover:-translate-y-1 transition-all duration-300 text-2xl">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+
+
+</html>
