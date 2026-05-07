@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+    background-color: darkgreen;
+    }
+    </style>
+</head>
+
+
+<body>
+    <button id="clickbtn">Click me</button>
+    <button onclick="saveDatatoDb()" id="onclicbtn"> I am On clik</button>
+    <script>
+        // console.log(window) we have window object
+        // console.log(window.document)//it is DOM
+        // console.log(window.document.getElementById("clickbtn"));
+        let buttonRef = window.document.getElementById('clickbtn');
+        // buttonRef.remove();
+        // buttonRef = null; //we remove button but stil we holding referance of it by.. ex const buttnRef = ...; , performance can improve null, when somehting is removed or ..
+        //thats why we use 'null' to make it garbage, with using let in referance variable;
+        
+        // buttonRef.style.backgroundColor = 'yellow';
+        // function saveDatatoDb () {
+        //     console.log("We are now saving data to the DB");
+        // }
+        // we learn doing by building TODO.html
+        //then we get data from server and display on todo : by freeApi 
+        
+        
+
+
+    </script>    
+</body>
+</html>

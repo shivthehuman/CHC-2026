@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO : </title>
+
+    //UNCOMMENT STYLE TO SEE CSS
+    <!-- <style>
+        :root {
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --border: #dce2ed;
+            --text: #202840;
+            --muted: #66738f;
+            --accent: #4f7cff;
+            --danger: #ff5c6d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #e5edff 0%, #f4f7fb 40%, #ffffff 100%);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        body>div:first-of-type,
+        body>div:last-of-type {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        body>div:first-of-type {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px 24px;
+            box-shadow: 0 20px 50px rgba(61, 80, 134, 0.12);
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        #todoinput {
+            flex: 1;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 1rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #todoinput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(79, 124, 255, 0.12);
+        }
+
+        #createButton {
+            border: none;
+            border-radius: 14px;
+            padding: 14px 22px;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        #createButton:hover {
+            transform: translateY(-1px);
+            background: #3b66f0;
+        }
+
+        #todoContainer {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(61, 80, 134, 0.08);
+        }
+
+        #todoContainer li {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--text);
+            transition: background 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        #todoContainer li:last-child {
+            border-bottom: none;
+        }
+
+        #todoContainer li:hover {
+            background: rgba(79, 124, 255, 0.05);
+            transform: translateX(2px);
+        }
+
+        #todoContainer li:active {
+            background: rgba(255, 92, 109, 0.1);
+        }
+
+        #todoContainer li::after {
+            content: "Tap to remove";
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+    </style> -->
+</head>
+
+<body>
+    <div>
+        <input id="todoinput" type="text" placeholder="Enter your todo" />
+        <button id="createButton">create</button>
+    </div>
+    <div>
+        <ul id="todoContainer">
+            <!-- <li>already exist Todo : not removed</li>
+            <li>another existing todo : not removed</li> -->
+        </ul>
+    </div>
+    <script>
+        const createButtonRef = document.getElementById("createButton");
+        const todoInputRef = document.getElementById('todoinput');
+        const todoContainerRef = document.getElementById('todoContainer');
+
+        (async () => {
+            fetch('https://api.freeapi.app/api/v1/public/quotes', {
+                method: 'GET',
+            })
+                .then(response => response.json()) //JSON = convert in object
+                .then((data) => {
+                    for (const obj of data.data.data) {
+                        const li = document.createElement("li");
+                        li.innerText = obj.content;
+                        todoContainerRef.appendChild(li);
+                    }
+                });
+        })();
+
+        createButtonRef.addEventListener('click', function () {
+            const value = todoInputRef.value;
+            console.log(value);
+
+            const li = document.createElement('li') // createElement li
+            li.innerText = value;
+
+            //remove todo when clicked on them
+            li.addEventListener('click', function () {
+                li.remove();
+            })
+            todoContainerRef.appendChild(li);
+            todoInputRef.value = '';
+        });
+
+        //WE LEARN DOM ;; 
+
+
+
+    </script>
+</body>
+</html>
