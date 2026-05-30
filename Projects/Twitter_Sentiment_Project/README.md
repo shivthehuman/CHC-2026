@@ -47,7 +47,6 @@ To run the analysis notebook (Python):
 
 ```bash
 python -m venv .venv
-.
 # Windows PowerShell
 .\.venv\Scripts\Activate.ps1
 # Windows cmd
@@ -56,10 +55,10 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install essential Python packages (adjust as needed):
+2. Install the required Python packages:
 
 ```bash
-pip install jupyter pandas numpy scikit-learn xgboost gensim matplotlib seaborn
+pip install -r requirements.txt
 ```
 
 3. Launch Jupyter and open `notebooks/code_sentiment_analysis.ipynb`:
