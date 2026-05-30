@@ -5,16 +5,16 @@ This repository contains code, data, and a small frontend dashboard for performi
 ## Project Overview
 
 - Full end-to-end sentiment analysis pipeline using classical ML and ML-augmented features.
-- A Jupyter notebook (`code_sentiment_analysis.ipynb`) demonstrates data loading, preprocessing, feature engineering, model training, and evaluation.
-- Data CSVs for training, testing, and final submission are included in the repository root.
+- A Jupyter notebook (`notebooks/code_sentiment_analysis.ipynb`) demonstrates data loading, preprocessing, feature engineering, model training, and evaluation.
+- Data CSVs for training, testing, and final submission are stored under `data/`.
 - A lightweight frontend dashboard (built with Vite + React) visualizes analytics and model outputs.
 
 ## Repository Structure
 
-- `code_sentiment_analysis.ipynb` - Analysis notebook used to train and evaluate models.
-- `ULTRA_CLEAN_train.csv` - Cleaned training dataset (CSV).
-- `ULTRA_CLEAN_test.csv` - Cleaned test dataset (CSV).
-- `FINAL_sub_xgb_w2v.csv` - Example final submission / predictions (CSV).
+- `notebooks/code_sentiment_analysis.ipynb` - Analysis notebook used to train and evaluate models.
+- `data/ULTRA_CLEAN_train.csv` - Cleaned training dataset (CSV).
+- `data/ULTRA_CLEAN_test.csv` - Cleaned test dataset (CSV).
+- `data/FINAL_sub_xgb_w2v.csv` - Example final submission / predictions (CSV).
 - `frontend-dashboard/` - Frontend dashboard source (Vite + React). Run separately (see below).
 
 ## Quickstart
@@ -62,7 +62,7 @@ source .venv/bin/activate
 pip install jupyter pandas numpy scikit-learn xgboost gensim matplotlib seaborn
 ```
 
-3. Launch Jupyter and open `code_sentiment_analysis.ipynb`:
+3. Launch Jupyter and open `notebooks/code_sentiment_analysis.ipynb`:
 
 ```bash
 jupyter lab
@@ -70,9 +70,9 @@ jupyter lab
 
 ## Data Description
 
-- `ULTRA_CLEAN_train.csv`: cleaned training examples with labels for supervised training.
-- `ULTRA_CLEAN_test.csv`: cleaned test examples for prediction/validation.
-- `FINAL_sub_xgb_w2v.csv`: sample predictions from an XGBoost + Word2Vec pipeline.
+- `data/ULTRA_CLEAN_train.csv`: cleaned training examples with labels for supervised training.
+- `data/ULTRA_CLEAN_test.csv`: cleaned test examples for prediction/validation.
+- `data/FINAL_sub_xgb_w2v.csv`: sample predictions from an XGBoost + Word2Vec pipeline.
 
 Do not add large raw data or models to the repo. Keep sensitive API keys out of version control.
 
@@ -84,8 +84,7 @@ Do not add large raw data or models to the repo. Keep sensitive API keys out of 
 
 ```bash
 cd frontend-dashboard
-npm run dev
-# npm run build
+npm run build
 ```
 
 Then serve the `dist` output with a static server of your choice.

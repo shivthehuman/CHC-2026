@@ -1,0 +1,22 @@
+# Core data and analysis stack
+pandas
+numpy
+scipy
+matplotlib
+seaborn
+
+# Notebook/runtime support
+jupyter
+ipykernel
+tqdm
+
+# NLP and text processing
+nltk
+wordcloud
+textblob
+NRCLex
+gensim
+
+# Machine learning
+scikit-learn
+xgboost
